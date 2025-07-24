@@ -77,7 +77,12 @@
             color: #2ec4b6;
             font-weight: 600;
         }
+        /* Remove underline for language menu */
+        #langMenu .lang-link {
+            text-decoration: none;
+        }
     </style>
+    
 </head>
 <body>
     <!-- Logo SVG fixed to the top left -->
@@ -96,6 +101,23 @@
             <circle opacity="0.55" cx="40" cy="18" r="18" fill="#B3EBF2"/>
             <ellipse opacity="0.29" cx="29.5" cy="37" rx="18.5" ry="18" fill="#01BED5"/>
         </svg>
+    </div>
+
+    <!-- Earth icon for language selection (top right) -->
+    <div class="position-absolute top-0 end-0 m-3" style="z-index:1050;">
+        <button id="langBtn" class="btn btn-light border rounded-circle p-2" style="box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <!-- Earth SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="#2ec4b6" stroke-width="2" fill="#fff"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20" stroke="#2ec4b6" stroke-width="1.5" fill="none"/>
+            </svg>
+        </button>
+        <!-- Language menu -->
+        <div id="langMenu" class="shadow rounded-3 bg-white py-2 px-3" style="display:none;position:absolute;right:0;top:48px;min-width:100px;">
+            <a href="#" class="d-block text-center py-1 text-secondary lang-link" data-lang="EN">EN</a>
+            <a href="#" class="d-block text-center py-1 text-secondary lang-link" data-lang="CN">CN</a>
+            <a href="#" class="d-block text-center py-1 text-secondary lang-link" data-lang="JP">JP</a>
+        </div>
     </div>
 
     <!-- Navigation Menu -->
@@ -159,7 +181,14 @@
         });
         // Hide bottom menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.custom-nav')) {
+            // Language menu
+            const langBtn = document.getElementById('langBtn');
+            const langMenu = document.getElementById('langMenu');
+            if (langMenu.style.display === 'block' && !e.target.closest('#langBtn') && !e.target.closest('#langMenu')) {
+                langMenu.style.display = 'none';
+            }
+            // Bottom nav menu
+            if (!e.target.closest('.custom-nav') && !e.target.closest('.bottom-menu')) {
                 document.getElementById('aboutMenu').classList.remove('active');
                 document.getElementById('treatmentMenu').classList.remove('active');
                 document.querySelectorAll('#mainNav .nav-link').forEach(l => {
@@ -167,6 +196,22 @@
                     else l.classList.remove('active');
                 });
             }
+        });
+
+        // Earth icon language menu toggle
+        document.getElementById('langBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('langMenu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        });
+
+        // Optional: handle language selection
+        document.querySelectorAll('.lang-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // You can add your language switch logic here
+                document.getElementById('langMenu').style.display = 'none';
+            });
         });
     </script>
 </body>
