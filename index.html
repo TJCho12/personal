@@ -1,471 +1,173 @@
-<!DOCTYPE HTML>
-<!--
-	Paradigm Shift by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Paradigm Shift by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Test</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-nav {
+            max-width: 950px;
+            margin: 60px auto 0 auto;
+        }
+        .custom-nav .nav {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
+            padding: 0.75rem 2rem;
+        }
+        .custom-nav .nav-link {
+            color: #757575;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .custom-nav .nav-link.active, .custom-nav .nav-link:focus, .custom-nav .nav-link:hover {
+            color: #2ec4b6;
+            font-weight: 600;
+        }
+        .custom-nav .vr {
+            opacity: 0.2;
+        }
+        .custom-nav .btn-book {
+            border: 2px solid #2ec4b6;
+            color: #757575;
+            font-weight: 700;
+            border-radius: 2rem;
+            padding: 0.5rem 2.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .custom-nav .btn-book:hover {
+            background: #2ec4b6;
+            color: #fff;
+        }
+        .bottom-menu {
+            display: none;
+            max-width: 950px;
+            margin: 20px auto 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
+            padding: 1rem 2rem;
+            text-align: center;
+            animation: fadeIn 0.2s;
+        }
+        .bottom-menu.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .bottom-menu .menu-link {
+            color: #757575;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .bottom-menu .menu-link:hover {
+            color: #2ec4b6;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo SVG fixed to the top left -->
+    <div class="position-absolute top-0 start-0 m-3">
+        <svg width="211" height="56" viewBox="0 0 211 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M149.929 20.282C149.929 17.93 150.391 15.844 151.315 14.024C152.267 12.204 153.541 10.804 155.137 9.824C156.761 8.844 158.567 8.354 160.555 8.354C162.291 8.354 163.803 8.704 165.091 9.404C166.407 10.104 167.457 10.986 168.241 12.05V8.732H174.163V32H168.241V28.598C167.485 29.69 166.435 30.6 165.091 31.328C163.775 32.028 162.249 32.378 160.513 32.378C158.553 32.378 156.761 31.874 155.137 30.866C153.541 29.858 152.267 28.444 151.315 26.624C150.391 24.776 149.929 22.662 149.929 20.282ZM168.241 20.366C168.241 18.938 167.961 17.72 167.401 16.712C166.841 15.676 166.085 14.892 165.133 14.36C164.181 13.8 163.159 13.52 162.067 13.52C160.975 13.52 159.967 13.786 159.043 14.318C158.119 14.85 157.363 15.634 156.775 16.67C156.215 17.678 155.935 18.882 155.935 20.282C155.935 21.682 156.215 22.914 156.775 23.978C157.363 25.014 158.119 25.812 159.043 26.372C159.995 26.932 161.003 27.212 162.067 27.212C163.159 27.212 164.181 26.946 165.133 26.414C166.085 25.854 166.841 25.07 167.401 24.062C167.961 23.026 168.241 21.794 168.241 20.366Z" fill="#2EC4B6"/>
+            <path d="M139.235 32L132.767 20.576H129.995V32H124.115V2.684H135.119C137.387 2.684 139.319 3.09 140.915 3.902C142.511 4.686 143.701 5.764 144.485 7.136C145.297 8.48 145.703 9.992 145.703 11.672C145.703 13.604 145.143 15.354 144.023 16.922C142.903 18.462 141.237 19.526 139.025 20.114L146.039 32H139.235ZM129.995 16.166H134.909C136.505 16.166 137.695 15.788 138.479 15.032C139.263 14.248 139.655 13.17 139.655 11.798C139.655 10.454 139.263 9.418 138.479 8.69C137.695 7.934 136.505 7.556 134.909 7.556H129.995V16.166Z" fill="#2EC4B6"/>
+            <path d="M107.244 32.378C105.004 32.378 102.988 31.888 101.196 30.908C99.4037 29.9 97.9897 28.486 96.9537 26.666C95.9457 24.846 95.4417 22.746 95.4417 20.366C95.4417 17.986 95.9597 15.886 96.9957 14.066C98.0597 12.246 99.5017 10.846 101.322 9.866C103.142 8.858 105.172 8.354 107.412 8.354C109.652 8.354 111.682 8.858 113.502 9.866C115.322 10.846 116.75 12.246 117.786 14.066C118.85 15.886 119.382 17.986 119.382 20.366C119.382 22.746 118.836 24.846 117.744 26.666C116.68 28.486 115.224 29.9 113.376 30.908C111.556 31.888 109.512 32.378 107.244 32.378ZM107.244 27.254C108.308 27.254 109.302 27.002 110.226 26.498C111.178 25.966 111.934 25.182 112.494 24.146C113.054 23.11 113.334 21.85 113.334 20.366C113.334 18.154 112.746 16.46 111.57 15.284C110.422 14.08 109.008 13.478 107.328 13.478C105.648 13.478 104.234 14.08 103.086 15.284C101.966 16.46 101.406 18.154 101.406 20.366C101.406 22.578 101.952 24.286 103.044 25.49C104.164 26.666 105.564 27.254 107.244 27.254Z" fill="#2EC4B6"/>
+            <path d="M81.0201 32.294C78.9761 32.294 77.1281 31.944 75.4761 31.244C73.8521 30.544 72.5641 29.536 71.6121 28.22C70.6601 26.904 70.1701 25.35 70.1421 23.558H76.4421C76.5261 24.762 76.9461 25.714 77.7021 26.414C78.4861 27.114 79.5501 27.464 80.8941 27.464C82.2661 27.464 83.3441 27.142 84.1281 26.498C84.9121 25.826 85.3041 24.958 85.3041 23.894C85.3041 23.026 85.0381 22.312 84.5061 21.752C83.9741 21.192 83.3021 20.758 82.4901 20.45C81.7061 20.114 80.6141 19.75 79.2141 19.358C77.3101 18.798 75.7561 18.252 74.5521 17.72C73.3761 17.16 72.3541 16.334 71.4861 15.242C70.6461 14.122 70.2261 12.638 70.2261 10.79C70.2261 9.054 70.6601 7.542 71.5281 6.254C72.3961 4.966 73.6141 3.986 75.1821 3.314C76.7501 2.614 78.5421 2.264 80.5581 2.264C83.5821 2.264 86.0321 3.006 87.9081 4.49C89.8121 5.946 90.8621 7.99 91.0581 10.622H84.5901C84.5341 9.614 84.1001 8.788 83.2881 8.144C82.5041 7.472 81.4541 7.136 80.1381 7.136C78.9901 7.136 78.0661 7.43 77.3661 8.018C76.6941 8.606 76.3581 9.46 76.3581 10.58C76.3581 11.364 76.6101 12.022 77.1141 12.554C77.6461 13.058 78.2901 13.478 79.0461 13.814C79.8301 14.122 80.9221 14.486 82.3221 14.906C84.2261 15.466 85.7801 16.026 86.9841 16.586C88.1881 17.146 89.2241 17.986 90.0921 19.106C90.9601 20.226 91.3941 21.696 91.3941 23.516C91.3941 25.084 90.9881 26.54 90.1761 27.884C89.3641 29.228 88.1741 30.306 86.6061 31.118C85.0381 31.902 83.1761 32.294 81.0201 32.294Z" fill="#2EC4B6"/>
+            <path d="M169.164 48.15C169.164 47.3567 169.322 46.666 169.64 46.078C169.957 45.4807 170.396 45.0187 170.956 44.692C171.525 44.3653 172.174 44.202 172.902 44.202C173.844 44.202 174.619 44.4307 175.226 44.888C175.842 45.3453 176.248 45.98 176.444 46.792H175.072C174.941 46.3253 174.684 45.9567 174.302 45.686C173.928 45.4153 173.462 45.28 172.902 45.28C172.174 45.28 171.586 45.532 171.138 46.036C170.69 46.5307 170.466 47.2353 170.466 48.15C170.466 49.074 170.69 49.788 171.138 50.292C171.586 50.796 172.174 51.048 172.902 51.048C173.462 51.048 173.928 50.9173 174.302 50.656C174.675 50.3947 174.932 50.0213 175.072 49.536H176.444C176.238 50.32 175.828 50.95 175.212 51.426C174.596 51.8927 173.826 52.126 172.902 52.126C172.174 52.126 171.525 51.9627 170.956 51.636C170.396 51.3093 169.957 50.8473 169.64 50.25C169.322 49.6527 169.164 48.9527 169.164 48.15Z" fill="#A9A9A9"/>
+            <path d="M166.712 43.082C166.47 43.082 166.264 42.998 166.096 42.83C165.928 42.662 165.844 42.4567 165.844 42.214C165.844 41.9713 165.928 41.766 166.096 41.598C166.264 41.43 166.47 41.346 166.712 41.346C166.946 41.346 167.142 41.43 167.3 41.598C167.468 41.766 167.552 41.9713 167.552 42.214C167.552 42.4567 167.468 42.662 167.3 42.83C167.142 42.998 166.946 43.082 166.712 43.082ZM167.328 44.328V52H166.054V44.328H167.328Z" fill="#A9A9A9"/>
+            <path d="M160.697 44.188C161.631 44.188 162.387 44.4727 162.965 45.042C163.544 45.602 163.833 46.414 163.833 47.478V52H162.573V47.66C162.573 46.8947 162.382 46.3113 161.999 45.91C161.617 45.4993 161.094 45.294 160.431 45.294C159.759 45.294 159.223 45.504 158.821 45.924C158.429 46.344 158.233 46.9553 158.233 47.758V52H156.959V44.328H158.233V45.42C158.485 45.028 158.826 44.7247 159.255 44.51C159.694 44.2953 160.175 44.188 160.697 44.188Z" fill="#A9A9A9"/>
+            <path d="M154.032 43.082C153.789 43.082 153.584 42.998 153.416 42.83C153.248 42.662 153.164 42.4567 153.164 42.214C153.164 41.9713 153.248 41.766 153.416 41.598C153.584 41.43 153.789 41.346 154.032 41.346C154.265 41.346 154.461 41.43 154.62 41.598C154.788 41.766 154.872 41.9713 154.872 42.214C154.872 42.4567 154.788 42.662 154.62 42.83C154.461 42.998 154.265 43.082 154.032 43.082ZM154.648 44.328V52H153.374V44.328H154.648Z" fill="#A9A9A9"/>
+            <path d="M151.063 41.64V52H149.789V41.64H151.063Z" fill="#A9A9A9"/>
+            <circle opacity="0.98" cx="18" cy="18" r="18" fill="#FFCA28" fill-opacity="0.69"/>
+            <circle opacity="0.55" cx="40" cy="18" r="18" fill="#B3EBF2"/>
+            <ellipse opacity="0.29" cx="29.5" cy="37" rx="18.5" ry="18" fill="#01BED5"/>
+        </svg>
+    </div>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- Navigation Menu -->
+    <nav class="custom-nav d-flex justify-content-between align-items-center">
+        <ul class="nav flex-grow-1 justify-content-center" id="mainNav">
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link active" href="#" data-menu="">Home</a>
+            </li>
+            <li class="vr mx-2" style="height:24px;"></li>
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link" href="#" data-menu="about">About Us</a>
+            </li>
+            <li class="vr mx-2" style="height:24px;"></li>
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link" href="#" data-menu="">Doctors</a>
+            </li>
+            <li class="vr mx-2" style="height:24px;"></li>
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link" href="#" data-menu="treatment">Treatment</a>
+            </li>
+            <li class="vr mx-2" style="height:24px;"></li>
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link" href="#" data-menu="">Event</a>
+            </li>
+        </ul>
+        <a href="#" class="btn btn-book ms-4">BOOK NOW</a>
+    </nav>
 
-				<!-- Intro -->
-					<section class="intro">
-						<header>
-							<h1>Paradigm Shift</h1>
-							<p>A free responsive site template designed by <a href="https://twitter.com/ajlkn">@ajlkn</a> / <a href="https://html5up.net">HTML5 UP</a></p>
-							<ul class="actions">
-								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
-							</ul>
-						</header>
-						<div class="content">
-							<span class="image fill" data-position="center"><img src="images/pic01.jpg" alt="" /></span>
-						</div>
-					</section>
+    <!-- Bottom Menus -->
+    <div id="aboutMenu" class="bottom-menu">
+        <a href="#" class="menu-link">Brand Story</a>
+        <a href="#" class="menu-link">Contact</a>
+    </div>
+    <div id="treatmentMenu" class="bottom-menu">
+        <a href="#" class="menu-link">Skin</a>
+        <a href="#" class="menu-link">Botox</a>
+        <a href="#" class="menu-link">Laser</a>
+    </div>
 
-				<!-- Section -->
-					<section id="first">
-						<header>
-							<h2>Magna sed nullam nisl adipiscing</h2>
-						</header>
-						<div class="content">
-							<p><strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
-							<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-						</div>
-					</section>
-
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Feugiat consequat tempus ultrices</h2>
-						</header>
-						<div class="content">
-							<p><strong>Etiam tristique libero</strong> eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum.</p>
-							<ul class="feature-icons">
-								<li class="icon solid fa-laptop">Consequat tempus</li>
-								<li class="icon solid fa-bolt">Etiam adipiscing</li>
-								<li class="icon solid fa-signal">Libero nullam</li>
-								<li class="icon solid fa-cog">Blandit condimentum</li>
-								<li class="icon solid fa-map-marker-alt">Lorem ipsum dolor</li>
-								<li class="icon solid fa-code">Nibh amet venenatis</li>
-							</ul>
-							<p>Vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
-						</div>
-					</section>
-
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Ultrices erat magna sed condimentum</h2>
-						</header>
-						<div class="content">
-							<p><strong>Integer mollis egestas</strong> nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
-
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Erat aliquam</h3>
-										<p>Vehicula ultrices dolor amet ultricies et condimentum. Magna sed etiam consequat, et lorem adipiscing sed dolor sit amet, consectetur amet do eiusmod tempor incididunt  ipsum suspendisse ultrices gravida.</p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/gallery/fulls/01.jpg" class="landscape"><img src="images/gallery/thumbs/01.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/02.jpg"><img src="images/gallery/thumbs/02.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/03.jpg"><img src="images/gallery/thumbs/03.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/04.jpg" class="landscape"><img src="images/gallery/thumbs/04.jpg" alt="" /></a>
-										</div>
-									</div>
-								</section>
-
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Nisl consequat</h3>
-										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam sed facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet mauris. Ut magna finibus nisi nec lacinia ipsum maximus.</p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/gallery/fulls/05.jpg" class="landscape"><img src="images/gallery/thumbs/05.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/06.jpg"><img src="images/gallery/thumbs/06.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/07.jpg"><img src="images/gallery/thumbs/07.jpg" alt="" /></a>
-										</div>
-									</div>
-								</section>
-
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Lorem gravida</h3>
-										<p>Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aenean ornare velit lacus, ac varius sed enim lorem ullamcorper dolore.  ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis.</p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/gallery/fulls/08.jpg" class="portrait"><img src="images/gallery/thumbs/08.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/09.jpg" class="portrait"><img src="images/gallery/thumbs/09.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/10.jpg" class="landscape"><img src="images/gallery/thumbs/10.jpg" alt="" /></a>
-										</div>
-									</div>
-								</section>
-
-						</div>
-					</section>
-
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Duis sed adpiscing veroeros amet</h2>
-						</header>
-						<div class="content">
-							<p><strong>Proin tempus feugiat</strong> sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.</p>
-							<ul class="actions">
-								<li><a href="#" class="button primary large">Get Started</a></li>
-								<li><a href="#" class="button large">Learn More</a></li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- Elements -->
-				<!--
-					<section>
-						<header>
-							<h2>Elements</h2>
-						</header>
-						<div class="content">
-
-							<section>
-								<header>
-									<h3>Text</h3>
-								</header>
-								<div class="content">
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<hr />
-									<h5>Blockquote</h5>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h5>Preformatted</h5>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-  print 'Iteration ' + i;
-  deck.shuffle();
-  i++;
-}
-
-print 'Sorted in ' + i + ' iterations.';</code></pre>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Lists</h3>
-								</header>
-								<div class="content">
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Table</h3>
-								</header>
-								<div class="content">
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Buttons</h3>
-								</header>
-								<div class="content">
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button large">Large</a></li>
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Form</h3>
-								</header>
-								<div class="content">
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</div>
-							</section>
-
-						</div>
-					</section>
-				-->
-
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Get in touch</h2>
-						</header>
-						<div class="content">
-							<p><strong>Auctor commodo</strong> interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis.</p>
-							<form>
-								<div class="fields">
-									<div class="field half">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="field half">
-										<input type="email" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="field">
-										<textarea name="message" id="message" placeholder="Message" rows="7"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" class="button primary" /></li>
-								</ul>
-							</form>
-						</div>
-						<footer>
-							<ul class="items">
-								<li>
-									<h3>Email</h3>
-									<a href="#">information@untitled.ext</a>
-								</li>
-								<li>
-									<h3>Phone</h3>
-									<a href="#">(000) 000-0000</a>
-								</li>
-								<li>
-									<h3>Address</h3>
-									<span>1234 Somewhere Road, Nashville, TN 00000</span>
-								</li>
-								<li>
-									<h3>Elsewhere</h3>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="#" class="icon brands fa-codepen"><span class="label">Codepen</span></a></li>
-									</ul>
-								</li>
-							</ul>
-						</footer>
-					</section>
-
-				<!-- Copyright -->
-					<div class="copyright">&copy; Untitled. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <!-- Bootstrap 5 JS and dependencies (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Show/hide bottom menu on nav click
+        document.querySelectorAll('#mainNav .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Remove active from all
+                document.querySelectorAll('#mainNav .nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                // Hide all bottom menus
+                document.getElementById('aboutMenu').classList.remove('active');
+                document.getElementById('treatmentMenu').classList.remove('active');
+                // Show relevant menu
+                if(this.dataset.menu === 'about') {
+                    document.getElementById('aboutMenu').classList.add('active');
+                } else if(this.dataset.menu === 'treatment') {
+                    document.getElementById('treatmentMenu').classList.add('active');
+                }
+            });
+        });
+        // Hide bottom menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.custom-nav')) {
+                document.getElementById('aboutMenu').classList.remove('active');
+                document.getElementById('treatmentMenu').classList.remove('active');
+                document.querySelectorAll('#mainNav .nav-link').forEach(l => {
+                    if(l.textContent.trim() === 'Home') l.classList.add('active');
+                    else l.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
 </html>
